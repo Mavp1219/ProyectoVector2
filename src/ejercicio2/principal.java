@@ -137,6 +137,7 @@ public class principal extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado Vectores:"));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtresultado2.setEditable(false);
         txtresultado2.setColumns(20);
         txtresultado2.setRows(5);
         jScrollPane2.setViewportView(txtresultado2);
@@ -211,56 +212,43 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdllenadoautomaticoActionPerformed
 
     private void cmdcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalcularActionPerformed
+        int opc, cpares = 0, cimpar = 0, contd, cprimos = 0;
+        opc = cmboperaciones.getSelectedIndex();
+        switch (opc) {
+            case 0:
+                for (int i = 0; i < v.length; i++) {
+                    if (v[i] % 2 == 0) {
+                        cpares = cpares + 1;
+                    }
+                }
+                txtresultado.setText("Los numeros pares son:" + cpares);
+                break;
 
-        if (txtlongitud.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Digite la longitud del vector", "Error", JOptionPane.ERROR_MESSAGE);
-            txtlongitud.requestFocusInWindow();
-        } else if (Integer.parseInt(txtlongitud.getText().trim()) == 0) {
-            JOptionPane.showMessageDialog(this, "La longitud debe ser mayor que cero", "Error", JOptionPane.ERROR_MESSAGE);
-            txtlongitud.requestFocusInWindow();
-            txtlongitud.selectAll();
-        } else {
+            case 1:
+                for (int i = 0; i < v.length; i++) {
+                    if (v[i] % 2 != 0) {
+                        cimpar = cimpar + 1;
+                    }
+                }
+                txtresultado.setText("Los numeros impares son: " + cimpar);
+                break;
 
-            int longitud, opc;
-            double primos = 0, impares = 0, pares = 0;
-            opc = cmboperaciones.getSelectedIndex();
-            longitud = Integer.parseInt(txtlongitud.getText());
-
-            switch (opc) {
-                case 0:
-                    for (int i = 0; i < v.length; i++) {
-                        if (v[i] % 2 == 0) {
-                            pares++;
+            case 2:
+                for (int i = 0; i < v.length; i++) {
+                    contd = 0;
+                    for (int j = 1; j <= v[i]; j++) {
+                        if (v[i] % j == 0) {
+                            contd = contd + 1;
                         }
                     }
-                    txtresultado.setText("Los numeros pares son: " + pares);
-                    break;
-
-                case 1:
-                    for (int i = 0; i < v.length; i++) {
-                        if (v[i] % 2 != 0) {
-                            impares++;
-                        }
+                    if (contd == 2) {
+                        cprimos = cprimos + 1;
                     }
-                    txtresultado.setText("Los numeros impares son: " + impares);
-                    break;
-
-                case 2:
-                    int contd = 0;
-                    for (int i = 0; i < v.length; i++) {
-                        for (int j = 1; j < v[i]; j++) {
-                            if (v[i] % j == 0) {
-                                contd++;
-                            }
-                        }
-                        if (contd == 2) {
-                            primos++;
-                        }
-                    }
-                    txtresultado.setText("Los numeros primos son: " + primos);
-                    break;
-            }
+                }
+                txtresultado.setText("Los numeros primos son: " + cprimos);
+                break;
         }
+
     }//GEN-LAST:event_cmdcalcularActionPerformed
 
     private void cmdborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdborrarActionPerformed
@@ -275,6 +263,7 @@ public class principal extends javax.swing.JFrame {
         cmdborrar.setEnabled(true);
         txtlongitud.setEnabled(true);
         txtlongitud.setEditable(true);
+        txtresultado2.setText("");
     }//GEN-LAST:event_cmdborrarActionPerformed
 
     /**
