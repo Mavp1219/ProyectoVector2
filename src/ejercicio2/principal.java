@@ -227,14 +227,12 @@ public class principal extends javax.swing.JFrame {
                 case 2:
                     int contd = 0;
                     for (int i = 0; i < v.length; i++) {
-                        if (v[i] % i == 0) {
-                            contd++;
-
-                            for (int j = 0; j < v.length; j++) {
-                                if (contd == 2) {
-                                    contd++;
-                                }
+                        for (int j = 1; j < v[i]; j++) {
+                            if (v[i] % j == 0) {
+                                contd++;
                             }
+                        }
+                        if (contd == 2) {
                             primos++;
                         }
                     }
