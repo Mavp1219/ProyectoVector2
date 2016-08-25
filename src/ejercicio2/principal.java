@@ -51,6 +51,9 @@ public class principal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtresultado = new javax.swing.JTextArea();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtresultado2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,7 +134,18 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 270, 130));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 370));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado Vectores:"));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtresultado2.setColumns(20);
+        txtresultado2.setRows(5);
+        jScrollPane2.setViewportView(txtresultado2);
+
+        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 16, 240, 100));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 270, 130));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -166,6 +180,9 @@ public class principal extends javax.swing.JFrame {
             n = Double.parseDouble(JOptionPane.showInputDialog(this, "Digite el elemento en la posición: " + i));
             v[i] = n;
         }
+        for (int i = 0; i < v.length; i++) {
+            txtresultado2.append(v[i] + "\n");
+        }
         cmdcrear.setEnabled(false);
         cmdllenadomanual.setEnabled(false);
         cmdllenadoautomatico.setEnabled(false);
@@ -180,6 +197,10 @@ public class principal extends javax.swing.JFrame {
             n = (int) (Math.random() * 25 + 1);
             v[i] = n;
         }
+        for (int i = 0; i < v.length; i++) {
+            txtresultado2.append(v[i] + "\n");
+        }
+
         JOptionPane.showMessageDialog(this, "Vector creado correctamente");
         cmdcrear.setEnabled(false);
         cmdllenadomanual.setEnabled(false);
@@ -304,8 +325,11 @@ public class principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txtlongitud;
     private javax.swing.JTextArea txtresultado;
+    private javax.swing.JTextArea txtresultado2;
     // End of variables declaration//GEN-END:variables
 }
