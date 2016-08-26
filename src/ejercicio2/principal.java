@@ -60,9 +60,9 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("PRIMOS, PARES E IMPARES DE UN VECTOR");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 250, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 280, 30));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Iniciales"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -212,25 +212,25 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdllenadoautomaticoActionPerformed
 
     private void cmdcalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcalcularActionPerformed
-        int opc, cpares = 0, cimpar = 0, contd, cprimos = 0;
+        int opc, contadorpares = 0, contadorimpar = 0, contd, contadorprimos = 0;
         opc = cmboperaciones.getSelectedIndex();
         switch (opc) {
             case 0:
                 for (int i = 0; i < v.length; i++) {
                     if (v[i] % 2 == 0) {
-                        cpares = cpares + 1;
+                        contadorpares = contadorpares + 1;
                     }
                 }
-                txtresultado.setText("Los numeros pares son:" + cpares);
+                txtresultado.setText("Los numeros pares son:"+contadorpares);
                 break;
 
             case 1:
                 for (int i = 0; i < v.length; i++) {
                     if (v[i] % 2 != 0) {
-                        cimpar = cimpar + 1;
+                        contadorimpar = contadorimpar + 1;
                     }
                 }
-                txtresultado.setText("Los numeros impares son: " + cimpar);
+                txtresultado.setText("Los numeros impares son: "+contadorimpar);
                 break;
 
             case 2:
@@ -242,10 +242,10 @@ public class principal extends javax.swing.JFrame {
                         }
                     }
                     if (contd == 2) {
-                        cprimos = cprimos + 1;
+                        contadorprimos = contadorprimos + 1;
                     }
                 }
-                txtresultado.setText("Los numeros primos son: " + cprimos);
+                txtresultado.setText("Los numeros primos son: " + contadorprimos);
                 break;
         }
 
